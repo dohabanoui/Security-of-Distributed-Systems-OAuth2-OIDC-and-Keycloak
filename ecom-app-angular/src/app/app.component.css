@@ -1,0 +1,52 @@
+/* Navbar Styles */
+.navbar {
+  padding: 0.75rem 0;
+}
+
+.nav-link {
+  position: relative;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ffffff !important;
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 2px;
+  background-color: #ffffff;
+  border-radius: 2px;
+}
+
+/* Dropdown Styles */
+.dropdown-menu {
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem 0;
+}
+
+.dropdown-item {
+  padding: 0.5rem 1rem;
+  transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(0,0,0,0.05);
+}
+
+.dropdown-item:active {
+  background-color: var(--bs-primary);
+}
+
+/* Avatar Styles */
+.avatar {
+  font-weight: 500;
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.5);
+}

@@ -1,0 +1,82 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold text-uppercase" href="#">MyApp</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active text-uppercase fw-bold" aria-current="page" href="#">
+            <i class="bi bi-house-door-fill me-2"></i>Home
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="keycloakService.getUserRoles().includes('ADMIN')">
+          <a class="nav-link text-uppercase fw-bold" routerLink="/products">
+            <i class="bi bi-box-seam me-2"></i>Products
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-uppercase fw-bold" routerLink="/customers">
+            <i class="bi bi-people-fill me-2"></i>Customers
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-uppercase fw-bold" routerLink="/orders">
+            <i class="bi bi-receipt-cutoff me-2"></i>Orders
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle text-uppercase fw-bold"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="bi bi-menu-button-wide-fill me-2"></i>More
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle text-uppercase fw-bold"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="bi bi-person-circle me-2"></i>
+            <span *ngIf="profile; else login_template">{{ profile.username }}</span>
+            <ng-template #login_template>
+              <button class="btn btn-light text-primary fw-bold" (click)="handleLogin()">Login</button>
+            </ng-template>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item text-success" (click)="handleLogin()">Login</a></li>
+            <li><a class="dropdown-item text-danger" (click)="handleLogout()">Logout</a></li>
+            <li><hr class="dropdown-divider"></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
