@@ -1,7 +1,7 @@
 package ma.sdia.inventoryservice.repository;
 
-import ma.sdia.inventoryservice.entities.Product;
+import ma.sdia.inventoryservice.entities.Cheque;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ProductRepository extends JpaRepository<Product, String> {
+public interface ChequeRepository extends JpaRepository<Cheque, String> {
 }
